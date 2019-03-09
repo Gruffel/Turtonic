@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include structure/head.html %}
+<body>
+  {% include structure/header.html %}
+  <main>
+    <div class="hero-img-container">
+<!-- <img src="https://img.purch.com/h/1000/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzEwMi8zMzIvb3JpZ2luYWwvZm9yZXN0LmpwZw=="> -->
+<picture>
+<img src="/assets/photos/canada_2017-web-compressed.jpg">
+</picture>
+<div class="hero-text">
+<h1 class="home-h1">{{site.author}}</h1>
+<p class="home-sub-title">| Perspective is Key |</p>
+</div>
+</div>
+<section>
+  <p>Skills</p>
+  </section>
+<section>
+  <p>Social Media Icons</p>
+  </section>
+{{ content }}
+
+  <section>
+    <p>education</p>
+    </section>
+
+<section>
+  <p>Resume</p>
+  </section>
+  <div class="potato">
+</div>
+
+    </main>
+    {% include structure/footer.html %}
+    </body>
+    </html>

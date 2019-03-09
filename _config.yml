@@ -1,0 +1,28 @@
+title: Turtonic
+author: John Turton
+home_description: A showcase of John Turton's work and focuses in life.
+
+
+permalink: pretty
+
+
+collections:
+  work:
+    output: true
+  about:
+    output: true
+  contact:
+    output: true
+
+
+sass:
+  style: compressed
+
+
+
+# slogan: Design Care, Change Perspective, Share Love
+
+# Learner | Lover | Designer
+# Dad Pun | Design Fun |
+ # Dad Pun | Design Fun | Mad Run
+ # Designer | Learner | Punner

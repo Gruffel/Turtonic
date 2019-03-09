@@ -1,0 +1,202 @@
+---
+---
+
+$primary-color:#86B360;
+$primary-color-inv:invert($primary-color);
+$secondary-color:#43664F;
+$secondary-color-inv:invert($secondary-color);
+$tertiary-color:#0E2522;
+$tertiary-color-inv:invert($tertiary-color);
+$quaternary-color:#D1E0CC;
+$quaternary-color-inv:invert($quaternary-color);
+$background-color:#D1E0CC;
+$body-copy:#333333;
+$link-colors:#A7D136;
+
+$main-width: 1500px;
+
+@font-face{
+  font-family:"moon";
+  src: url("/assets/fonts/Southerner Slant.woff");
+}
+html{
+background-color:$background-color;
+margin:0;
+padding:0;
+}
+body{
+  margin-top:0;
+width:100%;
+margin-left:auto;
+margin-right:auto;
+}
+h1{
+  font-family:"moon";
+margin: 0;
+}
+h2{
+  font-family: 'Raleway', sans-serif;
+
+}
+h3{
+  font-family: 'Raleway', sans-serif;
+
+}
+h4{
+  font-family: 'Raleway', sans-serif;
+
+}
+h5{
+  font-family: 'Raleway', sans-serif;
+
+}
+h6{
+  font-family: 'Raleway', sans-serif;
+
+}
+ul{
+  font-family: 'Raleway', sans-serif;
+
+}
+ol{
+  font-family: 'Raleway', sans-serif;
+
+}
+li{
+  font-family: 'Raleway', sans-serif;
+
+  // list-style: square inside url(".gif");
+}
+p{
+  font-family: 'Raleway', sans-serif;
+
+}
+a{
+  font-family: 'Raleway', sans-serif;
+
+  color:$link-colors;
+}
+a:hover, a:focus{
+  color:darken($link-colors,35%);
+}
+button{
+
+}
+.content-width{
+    margin-left: auto;
+    margin-right: auto;
+    max-width:$main-width;
+    display: flow-root;
+}
+header{
+  width:100%;
+  background-color:$body-copy;
+}
+.site-header-frame{
+margin-left:auto;
+margin-right:auto;
+  max-width: $main-width;
+display:flow-root;
+}
+nav{
+margin-left:2rem;
+margin-right:2rem;
+}
+nav a{
+  text-decoration:none;
+  padding: 1rem;
+}
+nav a:hover, nav a:focus{
+  text-decoration:underline;
+  background-color:$link-colors;
+}
+.logo svg{
+  margin:0;
+  padding:1rem;
+  width:5%;
+  float:left;
+  transition: 200ms;
+transition-timing-function: ease-in-out;
+-webkit-transition: 200ms;
+-webkit-transition-timing-function: ease-in-out;
+}
+a svg:hover,  a svg:focus{
+  background-color:$link-colors;
+}
+a svg:hover #turtonic-svg,  a svg:focus #turtonic-svg{
+  fill:darken($link-colors,35%);
+  // background-color:$link-colors;
+}
+.nav-grid{
+  float:right;
+  display:grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 2rem;
+}
+
+nav ul li{
+  font-size:1.25rem;
+font-family: 'Raleway', sans-serif;
+list-style-type:none;
+text-align:center;
+}
+.home-sub-title{
+  padding: 0rem 1rem 1rem 1rem;
+  font-size:2.2rem;
+  color:lighten($primary-color,15%);
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+.hero-img-container img{
+-webkit-filter: saturate(90%) brightness(35%); /* Safari 6.0 - 9.0 */ /*s30 b30*/
+filter: saturate(90%) brightness(35%);
+width: 100%;
+height: auto;
+max-height:1000px;
+clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+}
+.hero-img-container{
+  position:relative;
+}
+.potato{
+  background-color:$body-copy;
+  clip-path:polygon(70% 100%, 100% 100%, 100% 0%, 100% 0) ;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+
+.home-h1{
+  color:$primary-color;
+  padding:3rem 3rem 0rem 3rem;
+  // margin: 9rem 0rem 0rem 0rem;
+  font-size: 5rem;
+  text-align: center;
+  font-family: 'moon';
+  text-shadow: 5px 10px darken($primary-color,35%);
+}
+.big-button{
+
+}
+.med-button{
+
+}
+.small-button{
+
+}
+.primary-color-button{
+background-color: $primary-color;
+color:darken($body-copy,10%);
+}
+.secondary-color-button{
+background-color: darken($secondary-color,25%);
+color:lighten($secondary-color, 50%);
+}
+.tertiary-color-button{
+background-color:lighten($tertiary-color, 25%);
+color: darken($tertiary-color,5%);
+}
