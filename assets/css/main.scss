@@ -16,7 +16,7 @@ $link-colors:#A7D136;
 $main-width: 1500px;
 
 @font-face{
-  font-family:"moon";
+  font-family:"heading";
   src: url("/assets/fonts/Southerner Slant.woff");
 }
 html{
@@ -31,7 +31,7 @@ margin-left:auto;
 margin-right:auto;
 }
 h1{
-  font-family:"moon";
+  font-family:"heading";
 margin: 0;
 }
 h2{
