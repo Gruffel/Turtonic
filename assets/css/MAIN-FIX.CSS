@@ -29,7 +29,7 @@ h2 {
 }
 
 mark {
-  color: #333;
+  color: #333333;
   background-color: #A7D136;
   font-weight: bold;
   padding: 1rem 3rem 0 .25rem;
@@ -113,7 +113,7 @@ a:hover, a:focus {
 
 header {
   width: 100%;
-  background-color: #333;
+  background-color: #333333;
 }
 
 footer {
@@ -210,7 +210,7 @@ nav ul li {
 }
 
 .potato {
-  background-color: #333
+  background-color: #333333
 }
 
 .hero-text {
@@ -229,7 +229,30 @@ nav ul li {
   font-family: 'heading';
   text-shadow: 2px 2px #2f411f;
 }
-
+@media screen and (max-width:1450px) {
+.home-h1{
+  font-size: 4rem;
+}
+.home-sub-title {
+    padding: 3rem 2rem 3rem 2rem;
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width:1201px) {
+.home-h1{
+  font-size: 3rem;
+    padding: 2rem 2rem 0rem 2rem;
+}
+.home-sub-title {
+  padding: 1rem 2rem 1rem 2rem;
+  color:#a7d136;
+  background-color:none;
+    font-size: 2rem;
+    border: none;
+border-image-source: none;
+border-image-slice: unset;
+  }
+}
 .italic {
   font-style: italic;
 }
@@ -263,14 +286,20 @@ main section h3 {
 
 .image-gallery-container {
   display: grid;
-  grid: auto / auto auto auto auto auto;
-  grid-gap: 0px;
-  padding: 0px;
+  grid: auto / 25% 25% 25% 25%;
+      grid-gap: 0;
+      margin: auto;
+      width: 80%;
 }
+@media screen and (max-width:1501px) {
+  .image-gallery-container {
+    grid: auto / 32.5% 32.5% 32.5%;
 
+  }
+}
 a#gallery-image {
   display: inline-grid;
-  background-color: #333;
+  background-color: #333333;
   font-size: 1.2rem;
   color: #A7D136;
 }
@@ -301,7 +330,7 @@ a#gallery-image {
 
 .image-link:hover p, .image-link:focus p {
   position: absolute;
-  background: #333;
+  background: #333333;
   display: inline-block;
   min-width: 300px;
   max-width: 300px;
