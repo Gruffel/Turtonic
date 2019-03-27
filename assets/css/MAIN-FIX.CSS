@@ -289,7 +289,11 @@ main section h3 {
 }
 
 .resume_date {
-  float: right;
+  /* float: right; */
+  margin: 0 0 0 60px;
+}
+.resume_title-date{
+  margin: 0 0 0 60px;
 }
 
 .logo-gallery {
