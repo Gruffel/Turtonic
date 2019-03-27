@@ -271,6 +271,21 @@ border-image-slice: unset;
     width: 35px;
 }
 }
+@media screen and (max-width:750px) {
+.skills_wrapper {
+  grid: repeat(2,120px)/300px;
+  width: 80%;
+  margin: auto;
+}
+.home-h1 {
+    font-size: 2.25rem;
+    /* padding: 2rem 2rem 0rem 2rem; */
+}
+.home-sub-title {
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 1.65rem;
+}
+}
 .italic {
   font-style: italic;
 }
