@@ -108,6 +108,7 @@ a:hover, a:focus {
   margin-left: auto;
   margin-right: auto;
   max-width: 1500px;
+  min-height: 75vh;
   display: flow-root;
   padding: 30px;
   background-color: #ffffff;
@@ -188,13 +189,14 @@ nav ul li {
   padding: 4rem 3rem 4rem 3rem;
   font-size: 2.2rem;
   color: #A7D136;
-  background-color: #00000080;
+  /* background-color: rgba(0, 0, 0, .8); */
   text-align: center;
   font-family: 'Raleway', sans-serif;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  border: 10px solid;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
   border-image-source: linear-gradient(45deg, #86B360, #A7D136);
   border-image-slice: 1;
 }
@@ -287,6 +289,19 @@ border-image-slice: unset;
     font-size: 1.65rem;
 }
 }
+@media screen and (max-width:520px) {
+  .skills_wrapper {
+      width: unset;
+  }
+.home-h1 {
+    font-size: 1.5rem;
+    /* padding: 2rem 2rem 0rem 2rem; */
+}
+.home-sub-title {
+    padding: 0rem;
+    font-size: 1rem;
+}
+}
 .italic {
   font-style: italic;
 }
@@ -361,7 +376,7 @@ h2{
   .image-link:hover p, .image-link:focus p {
     min-width: 300px!important;
     max-width: 300px!important;
-    margin: 300px auto 0 auto!important;
+    margin: 225px auto 0 auto!important;
 }
 
 }
@@ -388,6 +403,8 @@ a#gallery-image {
 }
 .image-link img{
   padding: 0 0 10px 0;
+  -webkit-filter:grayscale(100%) blur(0px) !important;
+  filter:grayscale(100%) blur(0px) !important;
 }
 /* .image-link p{
   display:inherit;
@@ -461,14 +478,31 @@ a#gallery-image {
   min-width: 300px;
   max-width: 300px;
   padding: 18px 0 3px 0px;
-  margin: 250px auto 0 auto;
+  margin: 225px auto 0 auto;
 }
 
 .primary-color-button {
   background-color: #86B360;
   color: #1a1a1a;
+  width: 175px;
+  text-align: center;
+  padding: 15px;
+  border:1px solid #333333;
+  font-weight: 600;
 }
-
+.primary-color-button a{
+  color: #1a1a1a;
+}
+a.primary-color-button:hover, a.primary-color-button:focus {
+  background-color: #333333;
+  color: #86B360;
+}
+/* .primary-color-button a:hover, .primary-color-button a:focus{
+  color: #86B360;
+} */
+a.primary-color-button:hover a, a.primary-color-button:focus a{
+  color: #86B360;
+}
 .secondary-color-button {
   background-color: #101913;
   color: #cbddd1;
