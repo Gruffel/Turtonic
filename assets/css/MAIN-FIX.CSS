@@ -273,9 +273,10 @@ border-image-slice: unset;
 }
 @media screen and (max-width:750px) {
 .skills_wrapper {
-  grid: repeat(2,120px)/300px;
-  width: 80%;
+  grid: auto/300px;
+  width: 50%;
   margin: auto;
+  grid-gap:13px;
 }
 .home-h1 {
     font-size: 2.25rem;
