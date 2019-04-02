@@ -94,7 +94,7 @@ a:hover, a:focus {
 
 .skills_wrapper {
   display: grid;
-  grid: repeat(2, 90px)/auto-flow 350px;
+  grid: repeat(4, 90px)/auto-flow 350px;
 }
 .skills_1-5 {
     text-align: center;
@@ -361,7 +361,8 @@ main section h3 {
 justify-content: stretch;
 }
 h1#work {
-    font-size: 2rem;
+    font-size: 3.25rem;
+    text-align:center;
 }
 h2{
   margin:20px 0px 10px 0px;
@@ -404,7 +405,7 @@ h2{
 
 .exp-date{
   justify-self: start;
-} 
+}
 .resume_date, .resume_title-date {
     margin: 0 0 0 0;
 }
@@ -499,10 +500,10 @@ a#gallery-image {
   position: absolute;
   background: #333333;
   display: inline-block;
-  min-width: 300px;
-  max-width: 300px;
-  padding: 18px 0 3px 0px;
-  margin: 225px auto 0 auto;
+  /* min-width: 300px; */
+  max-width: 260px;
+  padding: 10px 5px;
+  margin: 210px auto 0 auto;
 }
 
 .primary-color-button {
