@@ -94,7 +94,7 @@ a:hover, a:focus {
 
 .skills_wrapper {
   display: grid;
-  grid: repeat(4, 90px)/auto-flow 350px;
+  grid: repeat(2, 90px)/auto-flow 350px;
 }
 .skills_1-5 {
     text-align: center;
@@ -275,7 +275,7 @@ border-image-slice: unset;
     width:75%;
   }
   .skills_wrapper {
-    grid: repeat(2,120px)/300px 300px;
+    grid: repeat(4,120px)/300px 300px;
     width: 80%;
     margin: auto;
 }
@@ -363,6 +363,7 @@ justify-content: stretch;
 h1#work {
     font-size: 3.25rem;
     text-align:center;
+    background-color:rgb(167,209,54,.3);
 }
 h2{
   margin:20px 0px 10px 0px;
@@ -507,13 +508,14 @@ a#gallery-image {
 }
 
 .primary-color-button {
-  background-color: #86B360;
+  background-color: #86b360;
   color: #1a1a1a;
-  width: 175px;
+  width: 350px;
   text-align: center;
-  padding: 15px;
-  border:1px solid #333333;
-  font-weight: 600;
+  font-size: 1.75rem;
+  padding: 20px 0px;
+  border: 1.5px solid #333;
+  font-weight: 400;
 }
 .primary-color-button a{
   color: #1a1a1a;
@@ -527,6 +529,22 @@ a#gallery-image {
 } */
 .primary-color-button:hover a, .primary-color-button:focus a{
   color: #86B360;
+}
+.content-width .image-full {
+    margin-left: auto;
+    margin-right: auto;
+    display: flow-root;
+}
+.image-full-wrap{
+  background-color:#333;
+  width:100%;
+  padding: 3rem 0rem;
+}
+.image-full-description{
+  min-height: 200px;
+border: 1px solid;
+margin: 10px 0px;
+padding: 10px 30px;
 }
 .secondary-color-button {
   background-color: #101913;
