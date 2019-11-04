@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "heading";
   src: url("/assets/fonts/Southerner Slant.woff");
@@ -103,11 +104,22 @@ a:hover, a:focus {
   width: 250px;
   height: 50px;
 }
-
+.exp-title-wrap{
+  display:grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+}
+.exp-title{
+justify-self: start;
+}
+.exp-date{
+  justify-self: end;
+}
 .content-width {
   margin-left: auto;
   margin-right: auto;
   max-width: 1500px;
+  min-height: 75vh;
   display: flow-root;
   padding: 30px;
   background-color: #ffffff;
@@ -188,13 +200,14 @@ nav ul li {
   padding: 4rem 3rem 4rem 3rem;
   font-size: 2.2rem;
   color: #A7D136;
-  background-color: #00000080;
+  /* background-color: rgba(0, 0, 0, .8); */
   text-align: center;
   font-family: 'Raleway', sans-serif;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  border: 10px solid;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
   border-image-source: linear-gradient(45deg, #86B360, #A7D136);
   border-image-slice: 1;
 }
@@ -263,12 +276,42 @@ border-image-slice: unset;
     width:75%;
   }
   .skills_wrapper {
-    grid: repeat(2,120px)/300px 300px;
+    grid: repeat(4,120px)/300px 300px;
     width: 80%;
     margin: auto;
 }
 .skills_wrapper svg {
     width: 35px;
+}
+}
+@media screen and (max-width:750px) {
+.skills_wrapper {
+  grid: auto/300px;
+  width: 50%;
+  margin: auto;
+  grid-gap:13px;
+}
+
+.home-h1 {
+    font-size: 2.25rem;
+    /* padding: 2rem 2rem 0rem 2rem; */
+}
+.home-sub-title {
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 1.65rem;
+}
+}
+@media screen and (max-width:520px) {
+  .skills_wrapper {
+      width: unset;
+  }
+.home-h1 {
+    font-size: 1.5rem;
+    /* padding: 2rem 2rem 0rem 2rem; */
+}
+.home-sub-title {
+    padding: 0rem;
+    font-size: 1rem;
 }
 }
 .italic {
@@ -277,6 +320,7 @@ border-image-slice: unset;
 
 main section h3 {
   display: inline-block;
+  margin: 0;
 }
 
 .resume_title-workPlace {
@@ -286,14 +330,20 @@ main section h3 {
 
 .resume_sub-info {
   font-size: 1.25rem;
+  margin:0;
 }
 
 .resume_date {
-  float: right;
+  /* float: right; */
+  margin: 0 0 0 60px;
+}
+.resume_title-date{
+  margin: 0 0 0 60px;
 }
 
 .logo-gallery {
   width: 100%;
+      margin: 30px 0px;
 }
 
 .logo-gallery svg {
@@ -312,7 +362,9 @@ main section h3 {
 justify-content: stretch;
 }
 h1#work {
-    font-size: 2rem;
+    font-size: 3.25rem;
+    text-align:center;
+    background-color:rgb(167,209,54,.3);
 }
 h2{
   margin:20px 0px 10px 0px;
@@ -341,13 +393,23 @@ h2{
   .image-link:hover p, .image-link:focus p {
     min-width: 300px!important;
     max-width: 300px!important;
-    margin: 300px auto 0 auto!important;
+    margin: 225px auto 0 auto!important;
 }
 
 }
 @media screen and (max-width:930px) {
 .content-width{
       padding: 30px 0;
+}
+.exp-title-wrap{
+  grid-template-columns: 100%;
+}
+
+.exp-date{
+  justify-self: start;
+}
+.resume_date, .resume_title-date {
+    margin: 0 0 0 0;
 }
   .image-gallery-container {
     grid: auto / 100%;
@@ -368,6 +430,8 @@ a#gallery-image {
 }
 .image-link img{
   padding: 0 0 10px 0;
+  -webkit-filter:grayscale(100%) blur(0px) !important;
+  filter:grayscale(100%) blur(0px) !important;
 }
 /* .image-link p{
   display:inherit;
@@ -438,17 +502,51 @@ a#gallery-image {
   position: absolute;
   background: #333333;
   display: inline-block;
-  min-width: 300px;
-  max-width: 300px;
-  padding: 18px 0 3px 0px;
-  margin: 250px auto 0 auto;
+  /* min-width: 300px; */
+  max-width: 260px;
+  padding: 10px 5px;
+  margin: 210px auto 0 auto;
 }
 
 .primary-color-button {
-  background-color: #86B360;
+  background-color: #86b360;
+  color: #1a1a1a;
+  width: 350px;
+  text-align: center;
+  font-size: 1.75rem;
+  padding: 20px 0px;
+  border: 1.5px solid #333;
+  font-weight: 400;
+}
+.primary-color-button a{
   color: #1a1a1a;
 }
-
+.primary-color-button:hover, .primary-color-button:focus {
+  background-color: #333333;
+  color: #86B360;
+}
+/* .primary-color-button a:hover, .primary-color-button a:focus{
+  color: #86B360;
+} */
+.primary-color-button:hover a, .primary-color-button:focus a{
+  color: #86B360;
+}
+.content-width .image-full {
+    margin-left: auto;
+    margin-right: auto;
+    display: flow-root;
+}
+.image-full-wrap{
+  background-color:#333;
+  width:100%;
+  padding: 3rem 0rem;
+}
+.image-full-description{
+  min-height: 200px;
+border: 1px solid;
+margin: 10px 0px;
+padding: 10px 30px;
+}
 .secondary-color-button {
   background-color: #101913;
   color: #cbddd1;
