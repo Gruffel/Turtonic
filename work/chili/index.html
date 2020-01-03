@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#" />
+  <meta name="theme-color" content="#020202" />
   
   <meta name="description" content="">
   
@@ -21,11 +21,45 @@
 
   <!-- Sctipts -->
   <!-- <script src="/assets/js/main.js"></script>  -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154479767-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154479767-1');
+</script>
 </head>
 
 <body>
+
+  <style>
+  body{
+    width:unset;
+    /* background: #161616; */
+    /* color:#f9f9f9; */
+  }
+  h2{
+    text-align: center;
+    color: #fbfbfb;
+    padding: .5rem 0rem 1.5rem 0rem;
+  }
+  .content-width{
+    max-width: 100%;
+  }
+  .image-grid{
+    display:grid;
+    grid: auto/ 1fr 1fr;
+  }
+  .additional-content{
+    text-align: center;
+  }
+  </style>
+
   <header class="site-header">
   <div class="site-header-frame">
+    <div>
   <a class="logo" href="/">
   <?xml version="1.0" encoding="utf-8"?>
   <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -54,10 +88,16 @@
   </g>
   </svg>
 </a>
+</div>
+<nav id="main-nav" aria-label="main" style="display:none;">
+   <ul class="nav-grid" >
+ <li><a href="/">Home</a></li>
+ <li><a href="/work/">Work</a></li>
+<!-- <li><a class="contact" href="/contact/">Contact</a></li> -->
+     <!-- <li><a href="/to-do/">To Do</a></li> -->
+<!-- <li><a class="contact" href="/blog/">Blog</a></li> -->
+ </ul>
 
-<nav id="main-nav" aria-label="main">
-  
-    </ul>
   </nav>
 
 
@@ -65,9 +105,9 @@
 
   <main>
     <section class="content-width">
-      <div class="primary-color-button">
+      <!-- <div class="primary-color-button">
       <a href="/work/">Back to the Gallery</a>
-    </div>
+    </div> -->
     
     
     
@@ -76,14 +116,21 @@
     
     
     
-    <h2>Busy Corner - Chili</h2>
     <div class="image-full-wrap">
+      <h2>Busy Corner - Chili</h2>
+      <div class="image-grid">
     <img class="image-full" src="/assets/images/gallery/full/Chilli.jpg" alt="Top view of a cup of chili on a table surrounded with muilti color peppers." title="Busy Corner - Chili" loading="lazy">
+    <div class="image-full-description">
+    <p class="description"style="font-size:2rem;font-weight:bold;margin:15px 0px 5px 0px;">Descriptions & Comments:</p>
+        <p class="description"></p>
+    </div>
+  </div>
 </div>
-<div class="image-full-description">
+<!-- <div class="image-full-description">
 <p class="description"style="font-size:2rem;font-weight:bold;margin:15px 0px 5px 0px;">Descriptions & Comments:</p>
     <p class="description"></p>
-</div>
+</div> -->
+<div class="additional-content">
     <style>
 .description{
   display:none;
@@ -91,23 +138,46 @@
 </style>
 
 
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <style>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+#back_to_gallery{
+margin-left:auto;
+margin-right:auto;
+width:100%;
+text-align:center;
+}
+
+</style>
+<div id="back_to_gallery">
+  <div>
+  
+    <a class="grad-button green" href="/work/#photography">Back to the Gallery</a>
+
+  
+
+</div>
+</div>
+
+
   </section>
         </main>
         <footer>
