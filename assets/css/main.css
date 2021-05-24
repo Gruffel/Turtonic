@@ -113,7 +113,7 @@ body, html{
 html{
 font-size:clamp(1rem,62.5%,3rem);
 animation: gradient 120s linear infinite;
-background: linear-gradient(180deg, rgb(71,153,195),rgb(208,235,255) ),url("https://turtonic.com/assets/gravel.png");
+background: linear-gradient(180deg, rgb(71,153,195),rgb(208,235,255) ),url("/assets/gravel.png");
 background-blend-mode: multiply;
 scroll-behavior: smooth;
 }
@@ -396,9 +396,6 @@ p, a,ul,li{
   margin:1rem 0;
 }
 .svg-polygon img{
-/* background:url("https://turtonic.com/assets/gravel.png"); */
-/* filter: drop-shadow(5px 5px 20px #00000095); */
-/* width:100vw; */
 height:auto;
 width: clamp(100vw, 2000px - 40vw, 300vw);
   }
@@ -516,7 +513,7 @@ details{
 
 }
 .texture{
-  background: linear-gradient(90deg, rgb(71,153,195),rgb(208,235,255)),url("https://turtonic.com/assets/gravel.png");
+  background: linear-gradient(90deg, rgb(71,153,195),rgb(208,235,255)),url("/assets/gravel.png");
   margin:0;
   background-blend-mode:multiply;
   /* box-shadow: 1px 3px 20px #33333320; */
