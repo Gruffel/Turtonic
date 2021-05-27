@@ -64,23 +64,22 @@ text-align: center;
 }
 h2{
   font-size:clamp(.95rem, 1rem + 1.5vw, 2.4rem);
-
 }
 h3{
   /* font-size:clamp(.85rem, .75rem + 1vw, 1.95rem); */
   font-size:clamp(.85rem, .95rem + 1.5vw, 2.25rem);
-
 }
 h4{
   font-size:clamp(.75rem, .25rem + 1vw, 1.7rem);
-
 }
 h5{
   font-size:clamp(.6rem, .2rem + 1vw, 1.5rem);
-
 }
-p{
+p, a, ul, li{
   font-size:clamp(.75rem, .1rem + 1vw, 1rem);
+}
+.detail__wrapper ul{
+  padding-inline-start: clamp(0.5rem, 2vw, 40px);
 }
 nav{
   width:100%;
@@ -285,21 +284,6 @@ a#skiplink:active, a#skiplink:focus{
 
 /* Fonts */
 
-@font-face {
-  font-family: "Palash-Regular";
-  src: url('/assets/fonts/Palash-Regular.otf');
-  font-weight: normal;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Saudagar";
-  src: url('/assets/fonts/Saudagar.woff');
-  font-weight: normal;
-  font-display: swap;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'clockwise';
@@ -359,34 +343,19 @@ a#skiplink:active, a#skiplink:focus{
 }
 
 @font-face {
-  font-family: 'Skyline-Vintage';
-  src:url('/assets/fonts/Skyline-Vintage.otf');
-  font-weight: normal;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Holland';
   src:url('/assets/fonts/Holland.woff');
   font-weight: normal;
   font-display: swap;
   font-style: normal;
 }
-/* h1{
-  font-family:"Holland";
 
-} */
 h1,h2,h3,h4,h5,h6,.special-paragraph,summary{
-/* font-family:"Palash-Regular"; */
-/* font-family:"Skyline-Vintage"; */
-/* font-family:"Saudagar"; */
 font-family:"Clockwise_thin";
-  /* font-family:"Holland"; */
 }
 p, a,ul,li{
   font-family:"clockwise_thin";
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
 }
 
 
@@ -485,6 +454,10 @@ summary{
   margin:1rem 0;
   color:#fff;
   transition: all .3s;
+}
+.detail__dates{
+  float:none;
+  display: block;
 }
 summary:hover,summary:focus{
   /* background:linear-gradient(90deg,rgb(17, 24, 31), rgb(0,60,129)); */
@@ -805,6 +778,11 @@ color:white;
 }
 
 @media screen and (min-width: 800px) {
+
+  .detail__dates{
+    float:right;
+    display: inline-block;
+  }
   .icon-links-wrapper{
     display:flex;
   }
