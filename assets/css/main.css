@@ -12,7 +12,7 @@
 /* dev styles */
 .dev--color-squares{
   width: 50px;
-  height:50px;
+  height: 50px;
 }
 
 /* site styles */
@@ -70,16 +70,13 @@ h3{
   font-size:clamp(.85rem, .95rem + 1.5vw, 2.25rem);
 }
 h4{
-  font-size:clamp(.75rem, .25rem + 1vw, 1.7rem);
+  font-size:clamp(.80rem, .85rem + 1vw, 1.7rem);
 }
 h5{
-  font-size:clamp(.6rem, .2rem + 1vw, 1.5rem);
+  font-size:clamp(.75rem, .75rem + 1vw, 1.5rem);
 }
-p, a, ul, li{
+p, ul, li{
   font-size:clamp(.75rem, .1rem + 1vw, 1rem);
-}
-.detail__wrapper ul{
-  padding-inline-start: clamp(0.5rem, 2vw, 40px);
 }
 nav{
   width:100%;
@@ -355,7 +352,7 @@ font-family:"Clockwise_thin";
 }
 p, a,ul,li{
   font-family:"clockwise_thin";
-  /* font-size: 1.25rem; */
+  font-size: 1.25rem;
 }
 
 
@@ -370,8 +367,54 @@ width: clamp(100vw, 2000px - 40vw, 300vw);
   }
 
 
+  .cork-board{
+    background:url('/assets/graphics/cork-board.png');
+    background-repeat: repeat;
+    padding: 2rem 1.5rem;
+  }
+  .cork-board section{
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    justify-items: center;
+    justify-content: space-evenly;
+  }
+.post-it{
+  display: inline-block;
+  background: #F3E779;
+  padding: 1rem .5rem;
+  width:clamp(300px, 20vw, 550px);
+  height:clamp(300px, 20vw, 550px);
+  margin: 1rem;
+  box-shadow: 2px 3px 4px 1px #22222290;
+}
+.post-it h4{
+font-size: clamp;
+}
 
-
+.gold-star{
+  display: grid;
+  width:325px;
+  height: 315px;
+  text-align: center;
+  align-items: center;
+  margin-top: -107px  ;
+  /* width:50%; */
+  /* height: 50%; */
+  /* border-radius: 50%; */
+  padding:1rem;
+  background: linear-gradient(45deg,#E9C760,#D0A53C,#F5D975,#B37D11);
+  clip-path: polygon(50% 0%, 66% 30%, 98% 35%, 74% 60%, 79% 91%, 50% 74%, 21% 91%, 27% 59%, 2% 35%, 35% 31%);
+  /* box-shadow: 1px 1px 10px 1px #000000; */
+}
+.gold-star img{
+/* width: 75%; */
+/* margin: auto; */
+/* justify-self: center; */
+/* align-self: center; */
+/* text-align: center; */
+/* margin-top: 40%; */
+}
 
 a.gradient__button {
   display: inline-block;
