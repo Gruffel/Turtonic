@@ -1,5 +1,11 @@
 ---
 ---
+:root{
+  --main-saturated-blue: #023E82;
+  --second-saturated-blue: #307BAE;
+}
+
+
 /* dev styles */
 /* site styles */
 /* Accessibility */
@@ -161,8 +167,8 @@ height:clamp(500px, 100%,1000px);
 /* .triangle-css{ */
   /* width:100vw; */
   /* height:100vh; */
-  /* background:linear-gradient(45deg, #4799C3, #4698C2, #307BAE, #1F649D, #115291, #074588, #023E82, #003C81); */
-  /* background:linear-gradient(45deg,  #4698C2, #307BAE, #1F649D, #115291, #074588, #023E82, #003C81); */
+  /* background:linear-gradient(45deg, #4799C3, #4698C2, var(--second-saturated-blue), #1F649D, #115291, #074588, var(--main-saturated-blue), #003C81); */
+  /* background:linear-gradient(45deg,  #4698C2, var(--second-saturated-blue), #1F649D, #115291, #074588, var(--main-saturated-blue), #003C81); */
   /* clip-path: polygon(0 0, 100% 0, 100% 9%, 0 60%); */
 /* } */
 
@@ -197,8 +203,8 @@ height:clamp(500px, 100%,1000px);
 }
 .nav-button{
   backdrop-filter: blur(8px);
-  background:#023E82;
-  border:1px solid #307BAE;
+  background:var(--main-saturated-blue);
+  border:1px solid var(--second-saturated-blue);
 padding: .5rem;
 border-radius: 5px;
 min-width:100px;
@@ -220,10 +226,10 @@ animation: neon6 1.5s ease-in-out infinite alternate;
 }
 @keyframes neon6 {
   from {
-    box-shadow: 0 0 10px #307BAE, 0 0 20px #307BAE, 0 0 30px #023E82, 0 0 40px #023E82;
+    box-shadow: 0 0 10px var(--second-saturated-blue), 0 0 20px var(--second-saturated-blue), 0 0 30px var(--main-saturated-blue), 0 0 40px var(--main-saturated-blue);
   }
   to {
-    box-shadow: 0 0 5px #307BAE, 0 0 10px #307BAE, 0 0 15px #023E82, 0 0 20px #023E82;
+    box-shadow: 0 0 5px var(--second-saturated-blue), 0 0 10px var(--second-saturated-blue), 0 0 15px var(--main-saturated-blue), 0 0 20px var(--main-saturated-blue);
   }
 
 }
@@ -347,6 +353,79 @@ a#skiplink:active, a#skiplink:focus{
   font-style: normal;
 }
 
+/* 
+---------
+
+POST IT FONTS 
+
+---------
+*/
+
+@font-face {
+  font-family: "Ballsye";
+  src:url('/assets/fonts/Ballsye.woff');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "BelpastU";
+  src:url('/assets/fonts/Belpast Underlines.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Belpast";
+  src:url('/assets/fonts/Belpast.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dambuleff-Medium";
+  src:url('/assets/fonts/Dambuleff-Medium.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dambuleff-Regular";
+  src:url('/assets/fonts/Dambuleff-Regular.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MondayPicnic-Regular";
+  src:url('/assets/fonts/MondayPicnic-Regular.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Norsanda";
+  src:url('/assets/fonts/Norsanda.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Winland";
+  src:url('/assets/fonts/Winland.otf');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+
+
+
+
 h1,h2,h3,h4,h5,h6,.special-paragraph,summary{
 font-family:"Clockwise_thin";
 }
@@ -380,16 +459,45 @@ width: clamp(100vw, 2000px - 40vw, 300vw);
     justify-content: space-evenly;
   }
 .post-it{
+/* font-family:"Smilicious"; */
   display: inline-block;
   background: #F3E779;
   padding: 1rem .5rem;
   width:clamp(300px, 20vw, 550px);
-  height:clamp(300px, 20vw, 550px);
+  height:clamp(300px, 20vw - 25px, 550px);
   margin: 1rem;
   box-shadow: 2px 3px 4px 1px #22222290;
 }
 .post-it h4{
-font-size: clamp;
+font-size: 1.5rem;
+/* font-family: ; */
+}
+.post-it p{
+font-size: 1.25rem;
+}
+.post-it h4, .post-it p, .cork-board h3{
+  font-family:"Norsanda";
+  /* font-family:"MondayPicnic-Regular"; */
+  /* font-family:"Dambuleff-Regular"; meh */
+}  
+.tape{
+  width: fit-content;
+  backdrop-filter: blur(2px);
+  padding: 1rem 1.25rem;
+  background: #eeeeee10;
+  filter: drop-shadow(1px 1px 1px #000000);
+  box-shadow: 0.5px 0.5px 2px #55555550;
+}
+.cork-board h3 {
+  /* width: fit-content; */
+  /* backdrop-filter: blur(2px); */
+  /* padding: 1rem 1.25rem; */
+  /* background: #eeeeee10; */
+  transform: rotate(-30deg);
+  /* filter:drop-shadow(1px 1px #000000); */
+  /* filter: drop-shadow(1px 1px 1px #000000); */
+  /* box-shadow: 0.5px 0.5px 2px #55555550; */
+  /* clip-path: polygon(100% 0, 95% 95%, 90% 95%, 100% 100%, 0% 100%, 5% 95%, 0% 0%); */
 }
 
 .gold-star{
