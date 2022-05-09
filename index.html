@@ -144,8 +144,7 @@ justify-content: start;
 
 </div>
   
-<main id="main" >
-  
+<main id="main" class="" >
   
 <section class="port-work-underconstruction">
 <div class="icon-links-background">
@@ -908,15 +907,17 @@ justify-content: start;
 <article class="work__article">
 <div class="work-container width-teir-1">
 <div class="work-text--left ">
-<h3>Image Optimizations</h3>
-<p class="work-article-bg">I worked with ImgIX CDN/API to optimize images for speed while retaining quality. I set researched and set the standards for our automated image inserts via the CMS.<br><br><i>More details coming soon.</i></p>
+<h3 class="work__title" id="jekyll-template">Jekyll Template
+<!-- <img src="/assets/graphics/433-github.svg" class="social-media--icon-mid" alt="" width="45" height="45" decode="async"> -->
+</h3>
+<p class="work-article-bg">I use the static site generator to construct templates that build and maintain Department and School websites at Illinois State University.<br><br><a href="https://github.com/Gruffel/Jekyll-Template" class="button" >Jekyll Template Details</a></p>
 </div>
 <div class="work-bullet--left ">
     <ul class="work-list work-list--left">
-        <li class="work-list-item image">CDN</li>
-        <li class="work-list-item image">API</li>
-        <li class="work-list-item image">CLS</li>
-        <li class="work-list-item image">FCP</li>
+        <li class="work-list-item image">Jekyll</li>
+        <li class="work-list-item image">Liquid</li>
+        <li class="work-list-item image">MarkDown</li>
+        <li class="work-list-item image"><abbr title="YAML Ain't Markup Language">YAML</abbr></li>
         <li class="work-list-item image">VS Code</li>
     </ul>
 </div>
@@ -929,8 +930,8 @@ justify-content: start;
 <article class="work__article">
 <div class="work-container right width-teir-1">
     <div class="work-text--right">
-        <h3 >Modular Components</h3>
-        <p class="work-article-bg">I built a system to do code splitting in the static site generator template and a method of re-usable components.<br><br><i>More details coming soon.</i></p>
+        <h3 class="work__title">Modular Components</h3>
+        <p class="work-article-bg">I built a system to do code splitting in the static site generator template and a method of re-usable components.<br><br><a href="https://github.com/Gruffel/Modular-Components" class="button" >Modular Components Details</a></p>
     </div>
     <div class="work-bullet--right ">
         <ul class="work-list work-list--right">
@@ -947,6 +948,29 @@ justify-content: start;
     </div>
 
 </article>
+<article class="work__article">
+    <div class="work-container width-teir-1">
+    <div class="work-text--left ">
+    <h3 class="work__title">Image Optimizations
+    <!-- <img src="/assets/graphics/433-github.svg" class="social-media--icon-mid" alt="" width="45" height="45" decode="async"> -->
+    </h3>
+    <p class="work-article-bg">I worked with ImgIX CDN/API to optimize images for speed while retaining quality. I researched and set the standards for our automated image inserts via the CMS.<br><br><a href="https://github.com/Gruffel/ImageCarousel" class="button" >Image Optimization Details</a></p>
+    </div>
+    <div class="work-bullet--left ">
+        <ul class="work-list work-list--left">
+            <li class="work-list-item image"><abbr title="Content Delivery Network">CDN</abbr></li>
+            <li class="work-list-item image"><abbr title="Application Programming Interface">API</abbr></li>
+            <li class="work-list-item image"><abbr title="Cumulative Layout Shift">CLS</abbr></li>
+            <li class="work-list-item image"><abbr title="Fist Contentful Paint">FCP</abbr></li>
+            <li class="work-list-item image">VS Code</li>
+        </ul>
+    </div>
+    <div class="work-image work-image--left ">
+        <img src="/assets/images/images.png" alt="Snapshot of code for a image based component." decode="async"/>
+    </div>
+    </div>
+    
+    </article>
 
 </section>
 </div> 
@@ -1073,19 +1097,22 @@ justify-content: start;
 
 </div>
 </div>
-
       
 </main>
 <footer style="text-align:center;padding:1rem;">
-<a href="https://www.linkedin.com/in/turtonic/" class="social-media linkedin"><img src="/assets/graphics/459-linkedin2.svg" class="social-media--icon" alt="" width="40" height="40" decode="async">LinkedIn</a>
-<style>
+<div class="footer__wrapper">
+    <style>
 
 </style>
 <div class="dailyDev__wrapper">
 <a href="https://app.daily.dev/Turtonic"><img src="https://api.daily.dev/devcards/fdd38afa6dbf4cf294f05c6addf2973d.png?r=lz2" width="400" alt="John Turton's Dev Card"/></a>
 </div>
 
-
+    <div class="footer-details">
+        <a href="https://www.linkedin.com/in/turtonic/" class="social-media linkedin"><img src="/assets/graphics/459-linkedin2.svg" class="social-media--icon" alt="" width="40" height="40" decode="async">LinkedIn</a>
+        <p>This site was built using <a href="https://www.11ty.dev/" target="_blank">11ty</a></p>
+    </div>
+</div>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
