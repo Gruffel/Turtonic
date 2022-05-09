@@ -1263,11 +1263,13 @@ a.button{
   display: flex;
     flex-flow: wrap;
   justify-content: flex-start;
+  align-items: center;
   }
   .work-list--right{
   display: flex;
     flex-flow: wrap;
   justify-content: flex-end;
+  align-items: center;
   
   }
   
