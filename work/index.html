@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+
+
+
+
+<meta property="url" content="/work/" >
+<meta property="og:url" content="/work/" >
+
+
+<style>
+
+</style>
+
+<title>Work</title>
+
+<link rel="icon" href="" type="image/x-icon" />
+
+<link  rel="stylesheet" type="text/css" href="/assets/css/main.css"/>
+<link rel="stylesheet" href="/assets/css/devices.min.css" type="text/css">
+<link rel="stylesheet" href="/assets/css/slick.css" type="text/css">
+
+<!-- <script src="assets/scripts/scrolling-text.js"></script> -->
+
+
+<style>
+
+
+
+</style>
+
+</head>
+<body>
+  
+<a href="#main" title="Skip to Content" id="skiplink">Skip to Content</a>
+
+   
+    <div class="home-nav__wrapper">
+    
+<div class="nav__gradient-bg">
+<header class="width-teir-1 ">
+
+
+<div class="nav-bar ">
+
+<p class="site-title"><a href="/">John Turton</a></p>
+
+
+<nav class="port-work-underconstruction">
+  <ul>
+  <li class="nav-button"><a href="/design/">Design</a></li>
+  <li class="nav-button"><a href="/develop/">Develop</a></li>
+  <li class="nav-button"><a href="/ux/">UX</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+</header>
+
+</div>
+   </div>
+<main id="main" class="null" >
+  
+<div class="width-teir-1 page__h1">
+<h1 id="h1__Work">Work</h1>
+</div><style>
+
+.work-details__content-wrapper{
+    display:grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr; */
+}
+.work-details__glass-square{
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 1px 20px 20px #55555520;
+   /* grid-row: 1 / span 1;
+   grid-column: 1 / span 3; */
+}
+.work-details__heading-wrapper{
+    /* grid-row: 1 / span 2;
+   grid-column: 1 / span 2; */
+   padding: 1rem;
+   z-index: 1;
+}
+.work-details__heading-wrapper h3{
+
+color: rgb(208,235,255);
+}
+.work-details__body-wrapper{
+    background:rgba(208,235,255, 45%);
+    backdrop-filter: blur(2px);
+    /* grid-row: 2 / span 2;
+   grid-column: 2 / span 4; */
+   padding: 1rem;
+   z-index: 1;
+}
+pre{
+    margin: unset;
+}
+
+
+
+
+</style>
+<section class="work-details__container width-teir-3">
+    <h2>Completed Work:</h2>
+<div class="work-details__content-wrapper">
+    <div class="work-details__glass-square"></div>
+    <div class="work-details__heading-wrapper">
+        <h3 id="Image-Optimization">Image Optimization</h3>
+    </div>
+    <div class="work-details__body-wrapper">
+        <div class="work-details__description">
+            <p class="work-details__text">Using a CDN/API <a href="https://imgix.com/" target="blank">(ImgIX)</a> I was able to set up a template that would take one image from the CMS and auto generate 37 different versions of the same image.</p>
+            <p class="work-details__text">The triggers for the variations of images:</p>
+            <ul class="work-details__list">
+                <li class="work-details__list-item">Screen Size of Device: Reduce image size (dimensions) and quality</li>
+                <li class="work-details__list-item">Pixel Density of Device: Reduce quality at various stages</li>
+                <li class="work-details__list-item">Best Image Format for Browser: avif, webp, jpg which impacts the compression/speed of load time</li>
+                <li class="work-details__list-item">Placeholder Image for slow loads: Drastically reduced image size (dimensions), quality, and heavy blur. This was inserted via inline styles to make it the first thing to load.</li>
+            </ul>
+            <p>I combined the Placeholder Image with native width and height dimensions to make sure there was no <abbr title="Cumulative Layout Shift">CLS</abbr> and secure that some image would be in place to indicate to users something is loading.</p>
+        </div>
+        <details>
+            <summary>⚠️ All of the Code: Image Carousel Component</summary>       
+<pre><code>{% assign instanceName = buildPageFeatureData.slider %}       
+{% assign siteFeatures = site.documents | where:'slider', instanceName %}                                                
+&lt;div class='slider-container'&gt;
+&lt;div class=&quot;max-width__tier-1 home-slider__pauseButton-wrapper&quot;&gt;    
+    &lt;button type=&quot;button&quot; 
+    class=&quot;home-slider__pauseButton icon icon__pause--after&quot; 
+    name=&quot;button&quot; onclick=&quot;togglePauseSlider()&quot;&gt;
+        &lt;span class='visuallyhidden'&gt;pause&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;section class=&quot;home-slider max-width__tier-1&quot; aria-label=&quot;Image Carousel&quot;&gt;
+{%- for feature-md in siteFeatures -%}
+{%- if feature-md.display == true -%}
+    &lt;div class=&quot;home-slider__slide &quot;&gt;
+        &lt;picture class=&quot;home-slider__image &quot;&gt;
+        {%- if forloop.first == true -%}
+            {%- if feature-md.image-portrait == true -%}
+            &lt;!--1st Slide--&gt;
+                &lt;!-- Portrait Settings --&gt; 
+                &lt;!-- ScreenSize minWidth 1200px --&gt;
+                    &lt;!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                    &lt;!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                    &lt;!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- ScreenSize minWidth 750px | Repeats example above--&gt;
+                &lt;!-- ScreenSize minWidth 480px | Repeats example above--&gt;
+                &lt;!-- ScreenSize maxWidth 479.9px | Repeats example above--&gt;
+                &lt;!-- img fallback image and overall image standards 
+                    &quot;loading='eager' 
+                    width='' height='' 
+                    decode='async' 
+                    style='blurred low file sized image for place holder on slow loads&quot; 
+                --&gt;
+            &lt;!-- minWidth 1200px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/avif&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/webp&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=80&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot;&gt;
+            &lt;!-- minWidth 750px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=75&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; &gt;
+            &lt;!-- minWidth 480px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=70&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; &gt;
+            &lt;!-- maxWidth 479.9px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=70&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; &gt;
+            &lt;!-- img fallback and standard/native settings --&gt;    
+            &lt;img src=&quot;{{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=70&amp;format=auto&amp;exp=-1&quot; 
+            alt=&quot;{{ feature-md.alttext }}&quot; 
+            width=&quot;1500&quot; height=&quot;750&quot; 
+            loading=&quot;eager&quot; 
+            decode=&quot;async&quot; 
+            style=&quot;background-image:url('{{feature-md.image}}?w=1500&amp;ar=18:9&amp;exp=-1&amp;auto=compress&amp;q=20&amp;format=auto&amp;blur=70&amp;fit=crop');background-size: cover;&quot;/&gt;
+            {%- else -%}
+            &lt;!--1st Slide--&gt;
+                &lt;!-- Landscape Settings --&gt;
+                &lt;!-- ScreenSize minWidth 1200px --&gt;
+                    &lt;!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                    &lt;!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                    &lt;!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- ScreenSize minWidth 750px | Repeats example above--&gt;
+                &lt;!-- ScreenSize minWidth 480px | Repeats example above--&gt;
+                &lt;!-- ScreenSize maxWidth 479.9px | Repeats example above--&gt;
+                &lt;!-- img fallback image and overall image standards &quot;
+                    loading='eager' 
+                    width='' height='' 
+                    decode='async' 
+                    style='blurred low file sized image for place holder on slow loads&quot; --&gt;
+            &lt;!-- minWidth 1200px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/avif&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/webp&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=80&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot;&gt;
+            &lt;!-- minWidth 750px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; &gt;
+            &lt;!-- minWidth 480px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=70&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=70&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=70&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=70&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=70&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=70&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=70&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=70&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=70&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; &gt;
+            &lt;!-- maxWidth 479.9px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=70&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=70&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=70&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=70&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=70&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=70&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=70&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=70&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=70&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; &gt;
+            &lt;!-- img fallback and standard/native settings --&gt;
+            &lt;img src=&quot;{{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=70&amp;format=auto&amp;exp=-1&quot; 
+            alt=&quot;{{ feature-md.alttext }}&quot; 
+            width=&quot;1500&quot; height=&quot;750&quot; 
+            loading=&quot;eager&quot; 
+            decode=&quot;async&quot; 
+            style=&quot;background-image:url('{{feature-md.image}}?w=1500&amp;ar=18:9&amp;exp=-1&amp;auto=compress&amp;q=20&amp;format=auto&amp;blur=70&amp;fit=crop');background-size: cover;&quot;/&gt;
+            {%- endif %}    
+            {%- else -%}    
+            {%- if feature-md.image-portrait == true -%}
+            &lt;!-- Portrait Settings --&gt; 
+                &lt;!-- ScreenSize minWidth 1200px --&gt;
+                &lt;!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- ScreenSize minWidth 750px | Repeats example above--&gt;
+                &lt;!-- ScreenSize minWidth 480px | Repeats example above--&gt;
+                &lt;!-- ScreenSize maxWidth 479.9px | Repeats example above--&gt;
+                &lt;!-- img fallback image and overall image standards &quot;width='' height='' decode='async'&quot; --&gt;
+            &lt;!-- minWidth 1200px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/avif&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/webp&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=85&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot;&gt;
+            &lt;!-- minWidth 750px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1200&amp;h=600&amp;q=80&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; &gt;
+            &lt;!-- minWidth 480px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=750&amp;h=375&amp;q=75&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; &gt;
+            &lt;!-- maxWidth 479.9px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=75&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=90&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=90&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=75&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=90&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=90&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=75&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=90&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=200&amp;h=112.50&amp;q=90&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; &gt;
+            &lt;!-- img fallback and standard/native settings --&gt;
+            &lt;img data-lazy=&quot;{{feature-md.image}}?fit=fill&amp;fill=blur&amp;w=1500&amp;h=750&amp;q=70&amp;format=auto&amp;exp=-1&quot; 
+            alt=&quot;{{ feature-md.alttext }}&quot; 
+            width=&quot;1500&quot; height=&quot;750&quot; 
+            decode=&quot;async&quot;/&gt;
+            {%- else -%}
+            &lt;!-- Landscape Settings --&gt;
+                &lt;!-- ScreenSize minWidth 1200px --&gt;
+                &lt;!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI --&gt;
+                &lt;!-- ScreenSize minWidth 750px | Repeats example above--&gt;
+                &lt;!-- ScreenSize minWidth 480px | Repeats example above--&gt;
+                &lt;!-- ScreenSize maxWidth 479.9px | Repeats example above--&gt;
+                &lt;!-- img fallback image and overall image standards &quot;width='' height='' decode='async'&quot; --&gt;
+            &lt;!-- minWidth 1200px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;fm=avif&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;fm=avif&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;fm=avif&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot; type=&quot;image/avif&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;fm=webp&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;fm=webp&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;fm=webp&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot;type=&quot;image/webp&quot;&gt;  
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;format=auto&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;format=auto&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=85&amp;format=auto&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:1200px)&quot;&gt;
+            &lt;!-- minWidth 750px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=80&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=80&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=80&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=80&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=80&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=80&amp;dpr=3&amp;exp=-1 3x&quot;
+                media=&quot;(min-width:750px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=80&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=80&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=1200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=80&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:750px)&quot; &gt;
+            &lt;!-- minWidth 480px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=750&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(min-width:480px)&quot; &gt;
+            &lt;!-- maxWidth 479.9px --&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=avif&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/avif&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;fm=webp&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=1&amp;exp=-1 1x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=2&amp;exp=-1 2x, 
+            {{feature-md.image}}?w=200&amp;ar=18:9&amp;fit=crop&amp;format=auto&amp;q=75&amp;dpr=3&amp;exp=-1 3x&quot; 
+            media=&quot;(max-width: 479.9px)&quot; &gt;
+            &lt;!-- img fallback and standard/native settings --&gt;
+            &lt;img data-lazy=&quot;{{feature-md.image}}?w=1500&amp;ar=18:9&amp;fit=crop&amp;q=70&amp;format=auto&amp;exp=-1&quot; 
+            alt=&quot;{{ feature-md.alttext }}&quot; 
+            width=&quot;1500&quot; height=&quot;750&quot; 
+            decode=&quot;async&quot;/&gt;
+            {%- endif %}    
+            {%- endif %}
+            &lt;/picture&gt;
+            &lt;div class=&quot;home-slider__text-box {%- if feature-md.visible == true -%}slider_link-active{%- endif %}&quot;&gt;
+            &lt;h2&gt;
+                {%- if feature-md.visible == true -%}
+                    &lt;a href=&quot;{{ feature-md.link }} &quot; {%- if feature-md.newtab == true -%} target=&quot;_blank&quot; {%- endif %}&gt;
+                {%- endif %}
+                    {{ feature-md.title | truncatewords: 12 }}{%- if feature-md.visible == true -%}&lt;/a&gt;
+                {%- endif %}
+            &lt;/h2&gt;
+            &lt;p&gt;{{ feature-md.description | truncatewords: 30 }}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    {%- endif %}
+{%- endfor -%}
+&lt;/section&gt;            
+&lt;/div&gt;                        
+{% include features/contentBlocks/slider/slick-js.html %}
+</code></pre>
+</details>
+</div>
+</div>
+<div class="work-details__content-wrapper">
+    <div class="work-details__glass-square"></div>
+    <div class="work-details__heading-wrapper">
+        <h3 id="modular-components">Modular Components</h3>
+    </div>
+    <div class="work-details__body-wrapper">
+        <div class="work-details__description">
+            <pre><code></code></pre>
+            <p class="work-details__text"></p>
+            <p class="work-details__text"></p>
+            <ul class="work-details__list">
+                <li class="work-details__list-item"></li>
+                <li class="work-details__list-item"></li>
+                <li class="work-details__list-item"></li>
+                <li class="work-details__list-item"></li>
+            </ul>
+            <p></p>
+        </div>
+    </div>
+</div>
+<p>Under Development Work:</p>
+<div class="work-details__content-wrapper">
+    <div class="work-details__glass-square"></div>
+    <div class="work-details__heading-wrapper">
+        <h3 id="modular-components">Object Oriented Front Matter Per Component</h3>
+    </div>
+    <div class="work-details__body-wrapper">
+        <div class="work-details__description">
+            <pre><code></code></pre>
+            <p class="work-details__text"></p>
+            <p class="work-details__text"></p>
+            <ul class="work-details__list">
+                <li class="work-details__list-item"></li>
+                <li class="work-details__list-item"></li>
+                <li class="work-details__list-item"></li>
+                <li class="work-details__list-item"></li>
+            </ul>
+            <p></p>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+  
+  
+</main>
+<footer style="text-align:center;padding:1rem;">
+<div class="footer__wrapper">
+    <style>
+
+</style>
+<div class="dailyDev__wrapper">
+<a href="https://app.daily.dev/Turtonic"><img src="https://api.daily.dev/devcards/fdd38afa6dbf4cf294f05c6addf2973d.png?r=lz2" width="400" alt="John Turton's Dev Card"/></a>
+</div>
+
+    <div class="footer-details">
+        <p><a href="https://www.linkedin.com/in/turtonic/" class="social-media linkedin"><img src="/assets/graphics/459-linkedin2.svg" class="social-media--icon" alt="" width="40" height="40" decode="async">LinkedIn</a></p>
+        <p><a href="https://github.com/Gruffel" class="social-media gitHub"><img src="/assets/graphics/433-github.svg" class="social-media--icon" alt="" width="40" height="40" decode="async">GitHub</a></p>
+        <p>Built using <a href="https://www.11ty.dev/" target="_blank">11ty</a></p>
+    </div>
+</div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+
+</body>
+</html> 
+ 

@@ -1,0 +1,115 @@
+/* *********************************
+    Main.css Table of Contents
+********************************* */
+/*
+---use the find tool to descover stlying sections---
+ - Fonts
+ - Formating/Structure Styles
+ - Text/Heading/Body_copy Styling
+ -
+
+*/
+/* *********************************
+    Fonts
+********************************* */
+@font-face{
+  /* font-family:;
+  src:;
+  src:url('') format('woff'), url('') format('embedded-opentype'), url('') format('truetype'), url('') format('svg');
+  font-weight:;
+  font-display:;
+  font-style:; */
+}
+/* *********************************
+    Formating/Structure Styles
+********************************* */
+html{
+
+}
+body{
+
+}
+header{
+
+}
+nav{
+
+}
+main{
+
+}
+footer{
+
+}
+
+/* *********************************
+    Text/Heading/Body_copy/Table Styling
+********************************* */
+a{
+  /* color:; */
+  text-decoration:none;
+}
+a:hover, a:focus {
+text-decoration:underline;
+}
+ul li{
+  /* fontfamily:; */
+}
+ol{
+/* fontfamily:; */
+}
+table{
+/* fontfamily:; */
+}
+thead th{
+
+}
+tbody td{
+
+}
+tbody tr{
+
+}
+
+p{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
+h1{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
+h2{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
+h3{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
+h4{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
+h5{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
+h6{
+  /* fontfamily:;
+  font-size:;
+  margin:;
+  line-height:; */
+}
