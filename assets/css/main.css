@@ -1012,7 +1012,7 @@ margin:0;
 
 }
 .image-text__image-background{
-background: linear-gradient(90deg, var(--color-black), transparent),url(/assets/images/Reggie.jpg);
+background: linear-gradient(90deg, #000000, transparent),url(/assets/images/Reggie.jpg);
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
