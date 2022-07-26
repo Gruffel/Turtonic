@@ -625,11 +625,7 @@ font-family:"Arenosa-Regular";
 }
 
 h1,h2,h3,h4,h5,h6,.special-paragraph,summary{
-{%comment%}
-/* font-family:"Clockwise_thin"; */
-/* font-family:"strange"; */
-/* font-family:"Arenosa-Regular"; */
-{%endcomment%}
+
 font-family:"BOOWIE";
 
 }
@@ -638,11 +634,6 @@ font-family:"BOOWIE";
 
 .home-h2{
   font-size:clamp(1rem, .25rem + 2.5vw, 2rem);
-{%comment%}
-  /* font-family: "clockwise_thin"; */
-  /* font-family: "strange"; */
-  /* font-family:"Arenosa-Regular"; */
-{%endcomment%}
   font-family:"BOOWIE";
 
   margin:1rem 0;
@@ -939,10 +930,7 @@ width: clamp(1rem, 1rem + 10vw, 17rem);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   background: #ffffff25;
-{%comment%}
-      /* border-radius: 15px; */
-      /* padding: .5rem 0 3rem 0;  */
-{%endcomment%}
+
 }
 .background__diagonal{
 background-color: #CAE7FC;
