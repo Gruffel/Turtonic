@@ -1,0 +1,34 @@
+---
+import { SITE_TITLE } from "../../constants";
+
+const {pageTitle = 'John Turton', pageDescription, keywords, image = '/assets/images/port.webp'} = Astro.props;
+---
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+    <link rel="icon" type="image/svg+xml" href="/assets/Turtonic-Logo-2019.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle} | {SITE_TITLE}</title>
+    <meta name="description" content={pageDescription} />
+<meta name="author" content="John Turton">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://turtonic.com">
+<meta property="og:title" content=`${pageTitle} | ${SITE_TITLE}`>
+<meta property="og:description" content={pageDescription}>
+<meta property="og:site_name" content="John Turton | Turtonic">
+
+
+<meta property="og:image" content={image}>
+<meta name="keywords" content={keywords}>
+
+</head>

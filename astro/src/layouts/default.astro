@@ -1,0 +1,21 @@
+---
+import Head from '../components/structure/head.astro';
+import Header from '../components/structure/header.astro';
+import Footer from '../components/structure/footer.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+<Head pageTitle={frontmatter.pageTitle} pageDescription={frontmatter.pageDescription}/>
+	<body>
+        <!-- <Dialog dialogClose={frontmatter.dialogClose} dialogContent={frontmatter.dialogContent} dialogButtonText={frontmatter.dialogButtonText}/> -->
+		<Header pageTitle={frontmatter.pageTitle}/>  
+        <main>
+        <section class="flow content-grid">
+        <slot />
+        </section>
+        </main>
+        <Footer />
+	</body>
+</html>

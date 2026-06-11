@@ -1,0 +1,47 @@
+---
+import work from "../../data/experience.json";
+---
+
+<style>
+  .work-exp_date {
+    text-align: left;
+  }
+  details {
+    /* width: 80vw; */
+    /* max-width: 500px; */
+    box-sizing: border-box;
+
+    /* background: var(--primary-color); */
+    transition: max-height 400ms ease-out;
+    max-height: clamp(200px, 100%, 100vh);
+    overflow: hidden;
+  }
+
+  summary {
+    width: 80vw;
+    padding: 10px;
+    margin-top: 10px;
+  }
+</style>
+<section class="flow content-grid">
+<h2>Work Experience</h2>
+{
+  work.map((e) => (
+    <details name="experience">
+      <summary>
+        {e.employer}{" "}
+        <span class="work-exp_date">
+          {e.startDate} - {e.endDate}
+        </span>
+      </summary>
+      <h3>{e.role}</h3>
+      <p>{e.subtext}</p>
+      <ul>
+        {e.exp.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </details>
+  ))
+}
+</section>

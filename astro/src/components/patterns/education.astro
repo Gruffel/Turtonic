@@ -1,0 +1,17 @@
+---
+import edu from "../../data/education.json";
+---
+<section class="flow content-grid">
+<h2>Education</h2>
+{
+    edu.map((ed) => (
+        <div>
+            <h3>{ed.school}</h3>
+            {ed.degree.map((item) => (
+                <p>{item}</p>
+            ))}
+        
+        </div>
+   ))
+}
+</section>

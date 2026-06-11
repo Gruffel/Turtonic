@@ -1,0 +1,280 @@
+/* Default (light) theme */
+:root {
+  --primary-color: #2A4A42; /* R Green */
+  --secondary-color: #C0C0C0; /* Silver */
+  --tertiary-color: #4A636E; /* Slate Blue */
+  --accent-color-1: #F5F5E8; /* Soft Cream */
+  --accent-color-2: #D4A017; /* Golden Ochre */
+  --accent-color-3: #E57373; /* Deep Coral */
+  --background-color: #FAFAFA; /* Near-White */
+  --text-color: #1A1A1A; /* Near-Black */
+  --text-wrap-base: pretty;
+  --primary-component-width: 770px;
+  --narrow-component-width: 780px;
+  --full-component-width: 100dvw;
+  --wider-component-width: 1420px;
+  --button-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  --font-serif:;
+  --font-san-serif:;
+  --font-weight-thin:;
+  --font-weight-light:;
+  --font-weight-normal:;
+  --font-weight-bold:;
+  --font-weight-black;
+
+  --color-green-100:;
+  --color-green-200:;
+  --color-green-300:;
+  --color-green-400:;
+  --color-green-500:#1A3C34;
+  --color-green-600:;
+  --color-green-700:;
+  --color-green-800:;
+  --color-green-900:;
+
+  --color-cream-100:;
+  --color-cream-200:;
+  --color-cream-300:;
+  --color-cream-400:;
+  --color-cream-500:#E8E8D0;
+  --color-cream-600:;
+  --color-cream-700:;
+  --color-cream-800:;
+  --color-cream-900:;
+
+  --color-coral-100:;
+  --color-coral-200:;
+  --color-coral-300:;
+  --color-coral-400:;
+  --color-coral-500:#FF8A80;
+  --color-coral-600:;
+  --color-coral-700:;
+  --color-coral-800:;
+  --color-coral-900:;
+
+  --color-black-100:;
+  --color-black-200:#abb7b4;
+  --color-black-300:#9ba5a3;
+  --color-black-400:;
+  --color-black-500:;
+  --color-black-600:;
+  --color-black-700:;
+  --color-black-800:;
+  --color-black-900:;
+
+  --color-teal-100:;
+  --color-teal-200:;
+  --color-teal-300:;
+  --color-teal-400:;
+  --color-teal-500:#19312b;
+  --color-teal-600:;
+  --color-teal-700:;
+  --color-teal-800:#1C2526;
+  --color-teal-900:;
+
+  --primary-font: var(--font-san-serif);
+  --secondary-font: var(--font-serif);
+  --tertiary-font: var(--font-display);
+
+}
+
+/* Dark theme for both manual selection and system preference */
+[data-theme="dark"]{
+    --primary-color: var(--color-green-500); /* R Green */
+    --secondary-color: #A9A9A9; /* Darker Silver */
+    --tertiary-color: #19312b; 
+    --tertiary-color-op90: #19312b90; 
+    --tertiary-color-op50: #19312b50; 
+    --tertiary-color-op20: #19312b20; 
+    --accent-color-1: #E8E8D0; /* Muted Cream */
+    --accent-color-2: #E8B923; /* Brighter Golden Ochre */
+    --accent-color-3: #FF8A80; /* Deep Coral */
+    --background-color: #1C2526; /* Dark Teal-Gray */
+    --text-color: #E6E6E6; /* Light Gray */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary-color: var(--color-green-500); /* R Green */
+    --secondary-color: #A9A9A9; /* Darker Silver */
+    --tertiary-color: #19312b; 
+    --tertiary-color-op90: #19312b90; 
+    --tertiary-color-op50: #19312b50; 
+    --tertiary-color-op20: #19312b20; 
+    --accent-color-1: #E8E8D0; /* Muted Cream */
+    --accent-color-2: #E8B923; /* Brighter Golden Ochre */
+    --accent-color-3: #FF8A80; /* Deep Coral */
+    --background-color: #1C2526; /* Dark Teal-Gray */
+    --text-color: #E6E6E6; /* Light Gray */
+  }
+}
+@layer reset, base, components, theme, utilities;
+
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Remove default button styling */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+/* Reset form elements */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  margin: 0;
+}
+}
+
+@layer base {
+  body {
+    font-family: sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, p{
+    text-wrap: var(--text-wrap-base);
+  }
+
+  /* .grid{
+    display: grid;
+    gap: var(--gap, 1rem);
+  } */
+  .content-grid, .fullwidth{
+    --padding-inline: 1rem;
+    --content-max-width: 770px;
+    --break-out-max-width: 1050px;
+    --breakout-size: calc((var(--break-out-max-width) - var(--content-max-width)) / 2);
+    display:grid;
+    grid-template-columns: [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
+  }
+  .content-grid >:not(.breakout, .full-width), .full-width > :not(.breakout, .full-width) {
+    grid-column: content;
+  }
+  .content-grid > .full-width {
+    grid-column: full-width;
+  }
+  /* Each full width component, @ block/wrapper level, sets a margin above for component flow */
+  .flow > * + * {
+    margin-top: var(--flow-spacing, 1em);
+  }
+}
+
+@layer theme {
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent-color-2);
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--accent-color-1);
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color-2);
+  color: var(--text-color);
+}
+
+/* Ensure accessibility for focus states */
+a:focus,
+button:focus {
+  outline: 2px solid var(--accent-color-2);
+  outline-offset: 2px;
+}
+    .parisienne-regular, h1 {
+        font-family: "Parisienne", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+   
+.radio-canada, h2, h3, h4, h5, h6, p, ul, ol, li, mark, details, summary{
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h2, h3, h4, h5, h6{
+  font-weight: 400;
+}
+p, ul, ol, li, mark, details, summary{
+  font-weight: 200;
+}
+
+    h1,h2,h3,h4,h5,h6,p,ul,ol,li,mark,details,summary,q,blockquote,dialog{
+        color:var(--text-color);
+    }
+
+}
+
+@layer components{
+    h1 {
+        font-family: sans-serif;
+    }
+
+
+    details summary::marker {
+ color: var(--accent-color-3);
+}
+details[open] summary::marker {
+  color: var(--accent-color-3);
+}
+
+    details {
+
+}
+summary{
+  background-color: var(--primary-color);
+
+
+}
+details::marker{
+transition: rotate 400ms ease-out;
+}
+details::details-content{
+    background-color: var(--tertiary-color-op50);
+      transition: height 0.5s ease, content-visibility 0.5s ease allow-discrete;
+  height: 0;
+  overflow: clip;
+  backdrop-filter: blur(5px);
+}
+}
+
+@layer utilities {
+  .text-center {
+    text-align: center;
+  }
+}
+
+/* Browser supports interpolate-size */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  [open]::details-content {
+    height: auto;
+  }
+}

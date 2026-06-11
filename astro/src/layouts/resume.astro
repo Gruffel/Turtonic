@@ -1,0 +1,32 @@
+---
+import Head from '../components/structure/head.astro';
+// import Dialog from '../components/feature/dialog.astro';
+import Header from '../components/structure/header.astro';
+import Footer from '../components/structure/footer.astro';
+// import Accordion from '../components/feature/accordion.astro';
+import Exp from '../components/patterns/experience.astro';
+import Edu from '../components/patterns/education.astro';
+
+
+const { frontmatter } = Astro.props;
+
+
+---
+
+<html lang="en">
+<Head pageTitle={frontmatter.pageTitle} pageDescription={frontmatter.pageDescription}/>
+	<body>
+        <!-- <Dialog dialogClose={frontmatter.dialogClose} dialogContent={frontmatter.dialogContent} dialogButtonText={frontmatter.dialogButtonText}/> -->
+		<Header pageTitle={frontmatter.pageTitle}/>  
+        <main>
+
+        <section class="flow content-grid">
+        <slot />
+        </section>
+        <Edu />
+        <Exp />
+        </main>
+        <Footer />
+	</body>
+</html>
+

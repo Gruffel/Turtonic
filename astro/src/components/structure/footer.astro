@@ -1,0 +1,12 @@
+---
+const footerLinks = ["footer array", "test"];
+
+---
+
+
+<footer class="flow content-grid">
+    <div class="dailyDev__wrapper">
+<img src="https://api.daily.dev/devcards/fdd38afa6dbf4cf294f05c6addf2973d.png?r=lz2" width="300" alt="John Turton's Dev Card">
+</div>
+   <p>{footerLinks.map((name) => (<div>{name}</div>))}</p>
+</footer>

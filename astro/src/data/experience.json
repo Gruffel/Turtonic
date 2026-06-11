@@ -1,0 +1,52 @@
+[
+    {
+        "employer":"Carle Health, Digital Marketing",
+        "role":"Front End Developer - MarTech Integration",
+        "subtext":"",
+"startDate":"November 2022",
+        "endDate":"Current",
+        "exp": [
+            "Oversee the configuration, maintenance, and enhancement of headless CMS systems, including content modeling, information architecture, and workflow design.",
+            "Integrate Headless CMS with web forms, websites, emails, internal applications (e.g. Internal Locations App, Internal Communications App), social media, digital ads, digital internal documentation, and other digital tools to ensure seamless functionality and scalability across organization needs.",
+            "Maintain and update Headless CMS with team support, ensuring alignment with marketing campaigns and organizational needs.",
+            "Develop and implement front-end solutions, focusing on user experience (UX) design (e.g. Behavioral Targertin, Real-time personalization), accessibility and responsive interfaces for marketing-driven web properties.",
+            "Collaborate with cross-functional teams (e.g. Digital Solutions, IT, InfoSec, Compliance, Legal) to deliver user-centered digital experiences that meet regulatory and branding standards.",
+            "Prototype, test, and iterate on web designs to enhance usability and engagement, leveraging skills in coding (e.g. HTML CSS, JavaScript, and grow in ASP.NET Core, Razor/Blazor) and design principles.",
+            "Monitor and improve web performance metrics (e.g. Core Web Vitals, page load speed) using tools like Google Analytics, Search Console, and performance auditing platforms.",
+            ""
+        ]
+    },
+    {
+        "employer":"Illinois State University, Wonsook Kim College of Fine Arts",
+        "role":"School of Creative Technologies - Instructional Assistant Professor",
+        "subtext":"",
+"startDate":"Fall 2023",
+        "endDate":"Dec 2024",
+        "exp": [
+            "best",
+            "things"
+        ]
+    },
+    {
+        "employer":"Illinois State University, College of Arts and Sciences - IT",
+        "role":"Front End Developer & Designer",
+        "subtext":"",
+"startDate":"May 2018",
+        "endDate":"November 2022",
+        "exp": [
+            "best",
+            "things"
+        ]
+    },
+    {
+        "employer":"Illinois State University",
+        "role":"Front End Developer & Designer",
+        "subtext":"",
+"startDate":"May 2016",
+        "endDate":"November 2022",
+        "exp": [
+            "best",
+            "things"
+        ]
+    }
+]
